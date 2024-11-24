@@ -1,0 +1,68 @@
+<html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Me perdonas?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #yes-button {
+            background-color: lightgreen;
+        }
+        #no-button {
+            background-color: lightcoral;
+        }
+        #message {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Me perdonas?</h1>
+    <button id="yes-button" class="button" onclick="yesClick()">Sí</button>
+    <button id="no-button" class="button" onclick="noClick()">No</button>
+    <p id="message"></p>
+
+    <script>
+        let noButton = document.getElementById('no-button');
+        let yesButton = document.getElementById('yes-button');
+        let message = document.getElementById('message');
+        let phrases = [
+            'Ándale por favor',
+            '¿Estás segura?',
+            '¿Estás completamente segura?',
+            '¿Segura segura?',
+            'Ándale ya perdóname',
+            'Añañe corazón'
+        ];
+        let currentPhraseIndex = 0;
+        let yesButtonSize = 16;
+
+        function yesClick() {
+            message.textContent = 'Siii te amo mucho ❤️';
+            yesButton.style.fontSize = '16px';
+            currentPhraseIndex = 0;
+            noButton.textContent = 'No';
+        }
+
+        function noClick() {
+            yesButtonSize *= 2;
+            yesButton.style.fontSize = yesButtonSize + 'px';
+            noButton.textContent = phrases[currentPhraseIndex];
+            if (currentPhraseIndex < phrases.length - 1) {
+                currentPhraseIndex++;
+            }
+        }
+    </script>
+</body>
+</html>
